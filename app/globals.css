@@ -1,26 +1,88 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --bg-primary: #E7E9E8;
+    --bg-secondary: #D5DADB;
+    --bg-dark: #123F46;
+    --bg-surface: #F4F3EF;
+    --text-primary: #172126;
+    --text-secondary: #526168;
+    --accent-teal: #176B78;
+    --accent-blue: #2C8292;
+    --accent-gold: #B99A5B;
+    --border-color: #B8C1C3;
+  }
+
+  body {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    font-family: var(--font-inter), system-ui, -apple-system, sans-serif;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Custom Typography Helpers */
+.font-heading {
+  font-family: var(--font-manrope), var(--font-inter), system-ui, sans-serif;
+}
+
+.font-sans-ui {
+  font-family: var(--font-inter), system-ui, sans-serif;
+}
+
+.font-mono-tech {
+  font-family: var(--font-mono), monospace;
+}
+
+/* Custom 3D Perspective & Depth Helpers */
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+.transform-style-3d {
+  transform-style: preserve-3d;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+}
+
+/* Glass & Peacock Surface Treatments */
+.glass-panel-3d {
+  background: rgba(244, 243, 239, 0.85);
+  backdrop-filter: blur(12px);
+  border: 1px solid #B8C1C3;
+  box-shadow: 0 10px 30px rgba(18, 63, 70, 0.08);
+}
+
+.teal-glass-panel {
+  background: rgba(18, 63, 70, 0.95);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(44, 130, 146, 0.4);
+  box-shadow: 0 15px 35px rgba(18, 63, 70, 0.15);
+}
+
+/* Custom Peacock Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #E7E9E8;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #B8C1C3;
+  border-radius: 0px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #176B78;
+}
+
+/* Custom Focus Ring for Accessibility */
+a:focus-visible, button:focus-visible {
+  outline: 2px solid #176B78;
+  outline-offset: 3px;
 }
